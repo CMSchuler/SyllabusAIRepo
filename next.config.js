@@ -8,7 +8,6 @@ const nextConfig = {
   },
   images: { unoptimized: true },
   swcMinify: false,
-  output: 'standalone',
   experimental: {
     serverComponentsExternalPackages: ['@supabase/supabase-js', 'openai', 'pdf-parse', 'mammoth'],
   },
