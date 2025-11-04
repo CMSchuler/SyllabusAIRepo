@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-950 dark:via-blue-950 dark:to-purple-950;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: float 3s ease-in-out infinite 1s;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Calendar custom styles */
+.react-calendar {
+  @apply w-full max-w-none border-0 bg-transparent font-sans;
+}
+
+.react-calendar__navigation {
+  @apply mb-4;
+}
+
+.react-calendar__navigation button {
+  min-width: 2.75rem;
+  @apply h-11 bg-transparent border-0 text-lg font-medium text-foreground hover:bg-accent hover:text-accent-foreground rounded-md transition-colors;
+}
+
+.react-calendar__navigation button:disabled {
+  @apply text-muted-foreground;
+}
+
+.react-calendar__month-view__weekdays {
+  @apply text-xs font-medium text-muted-foreground;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  @apply p-2 text-center;
+}
+
+.react-calendar__month-view__days__day {
+  @apply relative h-11 w-full border-0 bg-transparent text-sm font-normal text-foreground hover:bg-accent hover:text-accent-foreground rounded-md transition-colors;
+}
+
+.react-calendar__tile--active {
+  @apply bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground;
+}
+
+.react-calendar__tile--now {
+  @apply bg-accent text-accent-foreground;
+}
+
+.react-calendar__tile--hasActive {
+  @apply bg-accent;
+}
